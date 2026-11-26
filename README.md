@@ -9,7 +9,7 @@
 | `index.html`、`classroom.css` | 画面構成とデザイン |
 | `app.js` | Monaco、仮想ファイル、自動保存、ZIP、画面操作 |
 | `preview.js` | 相対パスの解決、sandbox付きiframe、コンソールと行番号 |
-| `starter.js` | 初回アクセス時に作る教材の3ファイル |
+| `starter.js` | 初回アクセス時に作る1ファイルの教材（HTML・CSS・JavaScriptを含む index.html） |
 | `vendor/` | バージョンを固定したライブラリとそのライセンス |
 | `.nojekyll` | GitHub Pagesでファイルをそのまま配信するための設定 |
 

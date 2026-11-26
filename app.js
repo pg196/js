@@ -347,7 +347,7 @@ byId("remove").onclick = () => {
 };
 
 byId("reset").onclick = () => ask({
-  title: "教材を初期状態に戻す", text: "入力したコードを消して、最初の3ファイルに戻します。必要なコードは先にZIPで保存してください。",
+  title: "教材を初期状態に戻す", text: "入力したコードを消して、見本の index.html だけに戻します。必要なコードは先にZIPで保存してください。",
   accept: "初期化する", action: () => {
     for (const path of models.keys()) disposeModel(path);
     editor?.setModel(null);
