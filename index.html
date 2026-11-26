@@ -1,50 +1,64 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      div {
-        text-align: center;
-      }
-      li {
-        list-style: none;
-      }
-      ul {
-        text-align: center;
-        padding-left: 0;
-      }
-      #message2 {
-        margin: 0;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <p>すきなたべもの</p>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <!-- ボタンidをついか -->
-      <button id="japan">にほんのたべもの</button>
-      <button id="world">せかいのたべもの</button>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="frame-src about:; object-src 'none'; base-uri 'none'">
+  <meta name="description" content="HTML・CSS・JavaScriptをすぐに試せる授業用エディター">
+  <title>Webコード教室</title>
+  <link rel="stylesheet" href="./classroom.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="brand"><span class="mark" aria-hidden="true">&lt;/&gt;</span><h1>Webコード教室</h1></div>
+    <div class="tools">
+      <button id="save" title="Ctrl + S">保存</button>
+      <button id="zip">ZIPを保存</button>
+      <button id="reset" class="quiet">初期化</button>
+      <button id="run" class="primary" title="Ctrl + Enter"><span aria-hidden="true">▶</span> 実行</button>
     </div>
-    <script>
-      // はいれつをさくせい
-      let food1 = ["おすし", "うどん", "らーめん"];
-      let food2 = ["pizza", "burger", "sushi"];
-      // ボタンをおしたときのイベントを２個つくる
-
-      // idを取得
-
-      // かんすうをつくる
-    </script>
-  </body>
+  </header>
+  <main id="workspace">
+    <aside id="explorer" aria-label="エクスプローラー">
+      <div class="section-bar"><h2>ファイル</h2><button id="add" class="small" title="ファイルを作成">＋ 新規</button></div>
+      <div class="file-list" id="files" aria-label="ファイル一覧"></div>
+      <div class="file-actions" aria-label="選択中のファイルの操作">
+        <button id="rename">名前を変更</button>
+        <button id="download">個別に保存</button>
+        <button id="remove" class="danger">削除</button>
+      </div>
+    </aside>
+    <div class="split vertical" id="left-split" tabindex="0" role="separator" aria-orientation="vertical" aria-label="ファイル欄の幅"></div>
+    <section id="editor-pane" aria-label="コードエディター">
+      <div id="tabs" role="tablist" aria-label="編集ファイル"></div>
+      <div class="editor-bar"><span id="active-name"></span><div class="font-tools"><button id="find" title="Ctrl + F">検索・置換</button><button id="font-minus" aria-label="文字を小さく">A−</button><button id="font-plus" aria-label="文字を大きく">A＋</button></div></div>
+      <div id="editor" role="tabpanel"><p id="loading">エディターを読み込んでいます…</p></div>
+    </section>
+    <div class="split vertical" id="right-split" tabindex="0" role="separator" aria-orientation="vertical" aria-label="プレビュー欄の幅"></div>
+    <section id="preview-pane" aria-label="プレビュー">
+      <div class="section-bar"><h2>プレビュー</h2><div class="preview-tools"><label class="live"><input id="live" type="checkbox"> 自動実行</label><button id="expand" aria-pressed="false">拡大</button></div></div>
+      <div class="preview-path"><label for="entry">表示するHTML</label><select id="entry"></select></div>
+      <div id="frame-host"></div>
+    </section>
+    <div class="split horizontal" id="bottom-split" tabindex="0" role="separator" aria-orientation="horizontal" aria-label="コンソールの高さ"></div>
+    <section id="console-pane" aria-label="コンソール">
+      <div class="section-bar"><h2>コンソール <span id="error-count" hidden></span></h2><button id="clear">クリア</button></div>
+      <div id="console" role="log" aria-live="off"></div>
+    </section>
+  </main>
+  <footer><span id="save-status" role="status">読み込み中</span><span id="cursor-status"></span></footer>
+  <dialog id="action-dialog">
+    <form method="dialog">
+      <h2 id="action-title"></h2>
+      <p id="action-text"></p>
+      <label id="filename-label" for="filename">ファイル名</label>
+      <input id="filename" spellcheck="false" autocomplete="off">
+      <p id="action-error" role="alert"></p>
+      <div class="dialog-actions"><button value="cancel" type="button" id="cancel">キャンセル</button><button value="ok" class="primary" id="accept">決定</button></div>
+    </form>
+  </dialog>
+  <script src="./vendor/jszip/dist/jszip.min.js"></script>
+  <script src="./vendor/monaco/min/vs/loader.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
 </html>

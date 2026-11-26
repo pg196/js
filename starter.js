@@ -1,34 +1,54 @@
 export const starterFiles = {
   "index.html": `<!doctype html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>はじめてのWebページ</title>
-  <style>
-    body {
-      padding: 24px;
-      background: #f2efff;
-      font-family: system-ui, sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        text-align: center;
+      }
+      li {
+        list-style: none;
+      }
+      ul {
+        text-align: center;
+        padding-left: 0;
+      }
+      #message2 {
+        margin: 0;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>すきなたべもの</p>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <!-- ボタンidをついか -->
+      <button id="japan">にほんのたべもの</button>
+      <button id="world">せかいのたべもの</button>
+    </div>
+    <script>
+      // はいれつをさくせい
+      let food1 = ["おすし", "うどん", "らーめん"];
+      let food2 = ["pizza", "burger", "sushi"];
+      // ボタンをおしたときのイベントを２個つくる
 
-    button { padding: 8px 12px; }
-  </style>
-</head>
-<body>
-  <h1 id="message">こんにちは！</h1>
-  <button id="hello" type="button">クリックしてみよう</button>
+      // idを取得
 
-  <script>
-    const button = document.getElementById("hello");
-    const message = document.getElementById("message");
-
-    button.addEventListener("click", () => {
-      message.textContent = "JavaScriptが動きました！";
-      console.log(message.textContent);
-    });
-  </script>
-</body>
+      // かんすうをつくる
+    </script>
+  </body>
 </html>
-`
+`,
 };
