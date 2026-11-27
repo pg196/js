@@ -33,7 +33,6 @@ h1, h2 { font-size: 15px; font-weight: 650; margin: 0; white-space: nowrap; }
 .toolbar button { min-height: 34px; padding-inline: 13px; font-size: 14px; }
 button.primary { background: #b3a2ff; color: #19142f; border-color: #b3a2ff; font-weight: 750; }
 button.primary:not(:disabled):hover { background: #cbbfff; }
-button.quiet { background: transparent; }
 #workspace {
   --left: 196px;
   --preview: 38%;
